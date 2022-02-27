@@ -1,0 +1,2 @@
+# cuda
+/opt/cuda
