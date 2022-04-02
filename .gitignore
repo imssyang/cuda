@@ -1,2 +1,4 @@
 # Ignore by git
 archive
+meta/backup-11.4/
+v11.4/

@@ -14,12 +14,9 @@ vi /etc/modprobe.d/blacklist-nouveau.conf  禁用nouveau驱动
 # 安装CUDA
 
 ```shell
-# cuda-v11.4.4:
-#   drive >= 470
-sh cuda_11.4.4_470.82.01_linux.run \
-  --installpath=/opt/cuda/v11.4 \
-  --toolkit \
-  --no-drm
+# 交互式命令安装
+wget https://developer.download.nvidia.com/compute/cuda/11.4.4/local_installers/cuda_11.4.4_470.82.01_linux.run
+sh cuda_11.4.4_470.82.01_linux.run --installpath=/opt/cuda/v11.4
 
    安装内容：
    /etc/X11/xorg.conf                     系统默认使用NVIDIA GPU (手动)
