@@ -2,6 +2,7 @@
 
 APP=cuda
 HOME=/opt/$APP
+VER=v11.4
 
 _create_symlink() {
   src=$1
@@ -20,10 +21,24 @@ _delete_symlink() {
   fi
 }
 
+_archive_item() {
+  fpath=$1
+  fdir=$(dirname $fpath)
+  fname=$(basename $fpath)
+  XZ_OPT=-e9 tar -cJf $HOME/archive/$VER-$fname.txz -C $fdir $fname
+}
+
+_unarchive_item() {
+  fpath=$1
+  fdir=$(dirname $fpath)
+  fname=$(basename $fpath)
+  tar -xvf $HOME/archive/$VER-$fname.txz -C $fdir
+}
+
 init() {
-  _create_symlink $HOME/v11.4/bin        $HOME/bin
-  _create_symlink $HOME/v11.4/include    $HOME/include
-  _create_symlink $HOME/v11.4/lib64      $HOME/lib64
+  _create_symlink $HOME/$VER/bin        $HOME/bin
+  _create_symlink $HOME/$VER/include    $HOME/include
+  _create_symlink $HOME/$VER/lib64      $HOME/lib64
 
   chown -R root:root $HOME
   chmod 755 $HOME
@@ -35,11 +50,43 @@ deinit() {
   _delete_symlink $HOME/lib64
 }
 
+archive() {
+  _archive_item $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
+  _archive_item $HOME/$VER/lib64/libcublasLt_static.a
+  _archive_item $HOME/$VER/lib64/libcublas.so.11.6.5.2
+  _archive_item $HOME/$VER/lib64/libcublas_static.a
+  _archive_item $HOME/$VER/lib64/libcufft.so.10.5.2.100
+  _archive_item $HOME/$VER/lib64/libcufft_static.a
+  _archive_item $HOME/$VER/lib64/libcufft_static_nocallback.a
+  _archive_item $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
+  _archive_item $HOME/$VER/lib64/libcusolver.so.11.2.0.120
+  _archive_item $HOME/$VER/lib64/libcusolver_static.a
+  _archive_item $HOME/$VER/lib64/libcusparse.so.11.6.0.120
+  _archive_item $HOME/$VER/lib64/libcusparse_static.a
+}
+
+unarchive() {
+  _unarchive_item $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
+  _unarchive_item $HOME/$VER/lib64/libcublasLt_static.a
+  _unarchive_item $HOME/$VER/lib64/libcublas.so.11.6.5.2
+  _unarchive_item $HOME/$VER/lib64/libcublas_static.a
+  _unarchive_item $HOME/$VER/lib64/libcufft.so.10.5.2.100
+  _unarchive_item $HOME/$VER/lib64/libcufft_static.a
+  _unarchive_item $HOME/$VER/lib64/libcufft_static_nocallback.a
+  _unarchive_item $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
+  _unarchive_item $HOME/$VER/lib64/libcusolver.so.11.2.0.120
+  _unarchive_item $HOME/$VER/lib64/libcusolver_static.a
+  _unarchive_item $HOME/$VER/lib64/libcusparse.so.11.6.0.120
+  _unarchive_item $HOME/$VER/lib64/libcusparse_static.a
+}
+
 case "$1" in
   init) init ;;
   deinit) deinit ;;
+  archive) archive ;;
+  unarchive) unarchive ;;
   *) SCRIPTNAME="${0##*/}"
-     echo "Usage: $SCRIPTNAME {init|deinit}"
+     echo "Usage: $SCRIPTNAME {init|deinit|archive|unarchive}"
      exit 3
      ;;
 esac
