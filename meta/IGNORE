@@ -1,3 +1,15 @@
 # Ignore by opt
 archive
 meta/backup-11.4
+v11.4/targets/x86_64-linux/lib/libcublasLt.so.11.6.5.2
+v11.4/targets/x86_64-linux/lib/libcublasLt_static.a
+v11.4/targets/x86_64-linux/lib/libcublas.so.11.6.5.2
+v11.4/targets/x86_64-linux/lib/libcublas_static.a
+v11.4/targets/x86_64-linux/lib/libcufft.so.10.5.2.100
+v11.4/targets/x86_64-linux/lib/libcufft_static.a
+v11.4/targets/x86_64-linux/lib/libcufft_static_nocallback.a
+v11.4/targets/x86_64-linux/lib/libcusolverMg.so.11.2.0.120
+v11.4/targets/x86_64-linux/lib/libcusolver.so.11.2.0.120
+v11.4/targets/x86_64-linux/lib/libcusolver_static.a
+v11.4/targets/x86_64-linux/lib/libcusparse.so.11.6.0.120
+v11.4/targets/x86_64-linux/lib/libcusparse_static.a
