@@ -1,4 +1,6 @@
-# CUDA环境
+# 安装驱动
+
+启用`--gpus all`后容器与宿主机共用驱动，因此宿主机安装驱动即可。
 
 ```shell
 uname -m && cat /etc/*release   查看OS信息
@@ -7,15 +9,17 @@ lsmod | grep nouveau                       查看nouveau驱动
 vi /etc/modprobe.d/blacklist-nouveau.conf  禁用nouveau驱动
   blacklist nouveau
   options nouveau modeset=0
+```
 
-安装（包含driver）
+# 安装CUDA
+
+```shell
+# cuda-v11.4.4:
+#   drive >= 470
 sh cuda_11.4.4_470.82.01_linux.run \
-  --toolkit --toolkitpath=/opt/cuda \
-  --samples --samplespath=/opt/cuda/sample \
-  --defaultroot=/opt/cuda/libext \
-  --extract=/opt/cuda/extract \
-  --tmpdir=/opt/cuda/tmp \
-  --no-opengl-libs
+  --installpath=/opt/cuda/v11.4 \
+  --toolkit \
+  --no-drm
 
    安装内容：
    /etc/X11/xorg.conf                     系统默认使用NVIDIA GPU (手动)
@@ -32,6 +36,12 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRAR
 卸载
 /usr/local/cuda/bin/cuda-uninstaller      卸载CUDA
 /usr/bin/nvidia-uninstall                 卸载驱动
+```
+
+# 安装cudnn
+
+```shell
+echo
 ```
 
 # python环境
