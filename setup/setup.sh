@@ -25,6 +25,7 @@ _archive_item() {
   fpath=$1
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
+  echo "($APP) archive $fpath"
   XZ_OPT=-e9 tar -cJf $HOME/archive/$VER-$fname.txz -C $fdir $fname
 }
 
@@ -32,6 +33,7 @@ _unarchive_item() {
   fpath=$1
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
+  echo "($APP) unarchive $fpath"
   tar -xvf $HOME/archive/$VER-$fname.txz -C $fdir
 }
 
