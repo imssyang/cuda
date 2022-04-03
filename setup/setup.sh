@@ -26,7 +26,7 @@ _archive_item() {
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
   echo "($APP) archive $fpath"
-  XZ_OPT=-e9 tar -cJf $HOME/archive/$VER-$fname.txz -C $fdir $fname
+  XZ_OPT=-e9 tar -cJf $HOME/archive/$fname-$VER.txz -C $fdir $fname
 }
 
 _unarchive_item() {
@@ -34,8 +34,23 @@ _unarchive_item() {
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
   echo "($APP) unarchive $fpath"
-  tar -xf $HOME/archive/$VER-$fname.txz -C $fdir
+  tar -xf $HOME/archive/$fname-$VER.txz -C $fdir
 }
+
+_large_files=(
+  $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
+  $HOME/$VER/lib64/libcublasLt_static.a
+  $HOME/$VER/lib64/libcublas.so.11.6.5.2
+  $HOME/$VER/lib64/libcublas_static.a
+  $HOME/$VER/lib64/libcufft.so.10.5.2.100
+  $HOME/$VER/lib64/libcufft_static.a
+  $HOME/$VER/lib64/libcufft_static_nocallback.a
+  $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
+  $HOME/$VER/lib64/libcusolver.so.11.2.0.120
+  $HOME/$VER/lib64/libcusolver_static.a
+  $HOME/$VER/lib64/libcusparse.so.11.6.0.120
+  $HOME/$VER/lib64/libcusparse_static.a
+)
 
 init() {
   _create_symlink $HOME/$VER            /usr/local/cuda
@@ -55,33 +70,21 @@ deinit() {
 }
 
 archive() {
-  _archive_item $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
-  _archive_item $HOME/$VER/lib64/libcublasLt_static.a
-  _archive_item $HOME/$VER/lib64/libcublas.so.11.6.5.2
-  _archive_item $HOME/$VER/lib64/libcublas_static.a
-  _archive_item $HOME/$VER/lib64/libcufft.so.10.5.2.100
-  _archive_item $HOME/$VER/lib64/libcufft_static.a
-  _archive_item $HOME/$VER/lib64/libcufft_static_nocallback.a
-  _archive_item $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
-  _archive_item $HOME/$VER/lib64/libcusolver.so.11.2.0.120
-  _archive_item $HOME/$VER/lib64/libcusolver_static.a
-  _archive_item $HOME/$VER/lib64/libcusparse.so.11.6.0.120
-  _archive_item $HOME/$VER/lib64/libcusparse_static.a
+  for fpath in "${_large_files[@]}"; do
+    _archive_item $fpath
+  done
 }
 
 unarchive() {
-  _unarchive_item $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
-  _unarchive_item $HOME/$VER/lib64/libcublasLt_static.a
-  _unarchive_item $HOME/$VER/lib64/libcublas.so.11.6.5.2
-  _unarchive_item $HOME/$VER/lib64/libcublas_static.a
-  _unarchive_item $HOME/$VER/lib64/libcufft.so.10.5.2.100
-  _unarchive_item $HOME/$VER/lib64/libcufft_static.a
-  _unarchive_item $HOME/$VER/lib64/libcufft_static_nocallback.a
-  _unarchive_item $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
-  _unarchive_item $HOME/$VER/lib64/libcusolver.so.11.2.0.120
-  _unarchive_item $HOME/$VER/lib64/libcusolver_static.a
-  _unarchive_item $HOME/$VER/lib64/libcusparse.so.11.6.0.120
-  _unarchive_item $HOME/$VER/lib64/libcusparse_static.a
+  for fpath in "${_large_files[@]}"; do
+    _unarchive_item $fpath
+  done
+}
+
+show() {
+  for fpath in "${_large_files[@]}"; do
+    echo $fpath
+  done
 }
 
 case "$1" in
@@ -89,8 +92,9 @@ case "$1" in
   deinit) deinit ;;
   archive) archive ;;
   unarchive) unarchive ;;
+  show) show ;;
   *) SCRIPTNAME="${0##*/}"
-     echo "Usage: $SCRIPTNAME {init|deinit|archive|unarchive}"
+     echo "Usage: $SCRIPTNAME {init|deinit|archive|unarchive|show}"
      exit 3
      ;;
 esac
