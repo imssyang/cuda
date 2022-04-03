@@ -34,10 +34,11 @@ _unarchive_item() {
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
   echo "($APP) unarchive $fpath"
-  tar -xvf $HOME/archive/$VER-$fname.txz -C $fdir
+  tar -xf $HOME/archive/$VER-$fname.txz -C $fdir
 }
 
 init() {
+  _create_symlink $HOME/$VER            /usr/local/cuda
   _create_symlink $HOME/$VER/bin        $HOME/bin
   _create_symlink $HOME/$VER/include    $HOME/include
   _create_symlink $HOME/$VER/lib64      $HOME/lib64
@@ -47,6 +48,7 @@ init() {
 }
 
 deinit() {
+  _delete_symlink /usr/local/cuda
   _delete_symlink $HOME/bin
   _delete_symlink $HOME/include
   _delete_symlink $HOME/lib64

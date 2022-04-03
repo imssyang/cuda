@@ -1,4 +1,7 @@
 # Ignore by git
 archive
+bin
+include
+lib64
 meta/backup-11.4/
 v11.4/
