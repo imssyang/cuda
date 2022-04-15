@@ -38,10 +38,10 @@ vector_gpu: vector_gpu.o
 vector_gpu.o: vector_gpu.cu
 	$(NVCC) $(ALL_CCFLAGS) $(GENCODE_FLAGS) $(INCLUDES) -c $< -o $@
 
-run_cpu: build_cpu
+run_cpu:
 	./vector_cpu
 
-run_gpu: build_gpu
+run_gpu:
 	./vector_gpu
 
 clean:
