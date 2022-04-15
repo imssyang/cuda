@@ -25,16 +25,20 @@ _archive_item() {
   fpath=$1
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
-  echo "($APP) archive $fpath"
-  XZ_OPT=-e9 tar -cJf $HOME/archive/$fname-$VER.txz -C $fdir $fname
+  if [[ ! -f $HOME/archive/$fname-$VER.txz ]]; then
+    echo "($APP) archive $fpath"
+    XZ_OPT=-e9 tar -cJf $HOME/archive/$fname-$VER.txz -C $fdir $fname
+  fi
 }
 
 _unarchive_item() {
   fpath=$1
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
-  echo "($APP) unarchive $fpath"
-  tar -xf $HOME/archive/$fname-$VER.txz -C $fdir
+  if [[ ! -f $fpath ]]; then
+    echo "($APP) unarchive $fpath"
+    tar -xf $HOME/archive/$fname-$VER.txz -C $fdir
+  fi
 }
 
 _large_files=(
