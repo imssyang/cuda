@@ -38,6 +38,7 @@ _unarchive_item() {
 }
 
 _large_files=(
+  # cuda
   $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
   $HOME/$VER/lib64/libcublasLt_static.a
   $HOME/$VER/lib64/libcublas.so.11.6.5.2
@@ -50,6 +51,17 @@ _large_files=(
   $HOME/$VER/lib64/libcusolver_static.a
   $HOME/$VER/lib64/libcusparse.so.11.6.0.120
   $HOME/$VER/lib64/libcusparse_static.a
+
+  # cudnn
+  $HOME/$VER/lib64/libcudnn_adv_infer.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_adv_train.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_cnn_infer.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_cnn_infer_static.a
+  $HOME/$VER/lib64/libcudnn_cnn_train.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_cnn_train_static.a
+  $HOME/$VER/lib64/libcudnn_ops_infer.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_ops_train.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_static.a
 )
 
 init() {

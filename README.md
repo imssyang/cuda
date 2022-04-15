@@ -38,7 +38,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRAR
 # 安装cudnn
 
 ```shell
-echo
+tar -xvf cudnn-11.4-linux-x64-v8.2.4.15.tgz
+cp cuda/include/cudnn*.h /opt/cuda/v11.4/include
+cp -P cuda/lib64/libcudnn* /opt/cuda/v11.4/lib64
+chmod a+r /opt/cuda/v11.4/include/cudnn*.h /opt/cuda/v11.4/lib64/libcudnn*
 ```
 
 # python环境
