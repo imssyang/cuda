@@ -44,7 +44,7 @@ cp -P cuda/lib64/libcudnn* /opt/cuda/v11.4/lib64
 chmod a+r /opt/cuda/v11.4/include/cudnn*.h /opt/cuda/v11.4/lib64/libcudnn*
 ```
 
-# python环境
+# 独立的python-cuda运行时环境
 
 ```shell
 python3 -m pip install --upgrade setuptools pip wheel  更新包工具
