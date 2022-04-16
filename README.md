@@ -53,5 +53,18 @@ requirements.txt --extra-index-url https://pypi.ngc.nvidia.com
 
 python3 -m pip install nvidia-cuda-runtime-cu11  CUDA运行时包
 python3 -m pip install nvidia-<library>
+    nvidia-nvml-dev-cu114
+    nvidia-cuda-nvcc-cu114
+    nvidia-cuda-runtime-cu114
+    nvidia-cuda-cupti-cu114
+    nvidia-cublas-cu114
+    nvidia-cuda-sanitizer-api-cu114
+    nvidia-nvtx-cu114
+    nvidia-cuda-nvrtc-cu114
+    nvidia-npp-cu114
+    nvidia-cusparse-cu114
+    nvidia-cusolver-cu114
+    nvidia-curand-cu114
+    nvidia-cufft-cu114
+    nvidia-nvjpeg-cu114
 ```
-
