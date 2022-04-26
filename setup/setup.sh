@@ -2,7 +2,7 @@
 
 APP=cuda
 HOME=/opt/$APP
-VER=v11.4
+VER=v11.3
 PIP=/opt/python3/bin/pip3
 
 _create_symlink() {
@@ -82,10 +82,6 @@ init() {
   chown -R root:root $HOME
   chmod 755 $HOME
 
-  $PIP install $HOME/setup/tensorrt/graphsurgeon-0.4.5-py2.py3-none-any.whl
-  $PIP install $HOME/setup/tensorrt/onnx_graphsurgeon-0.3.12-py2.py3-none-any.whl
-  $PIP install $HOME/setup/tensorrt/tensorrt-8.2.4.2-cp38-none-linux_x86_64.whl
-  $PIP install $HOME/setup/tensorrt/uff-0.6.9-py2.py3-none-any.whl
   $PIP install --no-cache-dir -r $HOME/setup/requirements.txt
 }
 
@@ -95,10 +91,7 @@ deinit() {
   _delete_symlink $HOME/include
   _delete_symlink $HOME/lib64
 
-  $PIP uninstall $HOME/setup/tensorrt/graphsurgeon-0.4.5-py2.py3-none-any.whl
-  $PIP uninstall $HOME/setup/tensorrt/onnx_graphsurgeon-0.3.12-py2.py3-none-any.whl
-  $PIP uninstall $HOME/setup/tensorrt/tensorrt-8.2.4.2-cp38-none-linux_x86_64.whl
-  $PIP uninstall $HOME/setup/tensorrt/uff-0.6.9-py2.py3-none-any.whl
+  $PIP uninstall --no-cache-dir -r $HOME/setup/requirements.txt
 }
 
 archive() {
