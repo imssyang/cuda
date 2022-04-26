@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+matplotlib==3.5.1
+nvidia-pyindex==1.0.9
+pycuda==2021.1
+torch==1.11.0+cu113
+torchaudio==0.11.0+cu113
+torchvision==0.12.0+cu113
+graphsurgeon      @ file:///opt/cuda/setup/tensorrt/graphsurgeon-0.4.5-py2.py3-none-any.whl
+onnx_graphsurgeon @ file:///opt/cuda/setup/tensorrt/onnx_graphsurgeon-0.3.12-py2.py3-none-any.whl
+tensorrt          @ file:///opt/cuda/setup/tensorrt/tensorrt-8.2.4.2-cp38-none-linux_x86_64.whl
+uff               @ file:///opt/cuda/setup/tensorrt/uff-0.6.9-py2.py3-none-any.whl
+
