@@ -1,6 +1,6 @@
 --extra-index-url https://download.pytorch.org/whl/cu113
 matplotlib==3.5.1
-nvidia-pyindex==1.0.9
+#nvidia-pyindex==1.0.9
 pycuda==2021.1
 torch==1.11.0+cu113
 torchaudio==0.11.0+cu113
