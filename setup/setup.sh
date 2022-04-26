@@ -44,32 +44,32 @@ _unarchive_item() {
 
 _large_files=(
   # cuda
-  $HOME/$VER/lib64/libcublasLt.so.11.6.5.2
+  $HOME/$VER/lib64/libcublasLt.so.11.5.1.109
   $HOME/$VER/lib64/libcublasLt_static.a
-  $HOME/$VER/lib64/libcublas.so.11.6.5.2
+  $HOME/$VER/lib64/libcublas.so.11.5.1.109
   $HOME/$VER/lib64/libcublas_static.a
-  $HOME/$VER/lib64/libcufft.so.10.5.2.100
+  $HOME/$VER/lib64/libcufft.so.10.4.2.109
   $HOME/$VER/lib64/libcufft_static.a
   $HOME/$VER/lib64/libcufft_static_nocallback.a
-  $HOME/$VER/lib64/libcusolverMg.so.11.2.0.120
-  $HOME/$VER/lib64/libcusolver.so.11.2.0.120
+  $HOME/$VER/lib64/libcufftw.so.10.4.2.109
+  $HOME/$VER/lib64/libcusolverMg.so.11.1.2.109
+  $HOME/$VER/lib64/libcusolver.so.11.1.2.109
   $HOME/$VER/lib64/libcusolver_static.a
-  $HOME/$VER/lib64/libcusparse.so.11.6.0.120
+  $HOME/$VER/lib64/libcusparse.so.11.6.0.109
   $HOME/$VER/lib64/libcusparse_static.a
+  $HOME/$VER/lib64/libnvblas.so.11.5.1.109
 
   # cudnn
-  $HOME/$VER/lib64/libcudnn_adv_infer.so.8.2.4
-  $HOME/$VER/lib64/libcudnn_adv_train.so.8.2.4
-  $HOME/$VER/lib64/libcudnn_cnn_infer.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_adv_infer.so.8.2.1
+  $HOME/$VER/lib64/libcudnn_cnn_infer.so.8.2.1
   $HOME/$VER/lib64/libcudnn_cnn_infer_static.a
-  $HOME/$VER/lib64/libcudnn_cnn_train.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_cnn_train.so.8.2.1
   $HOME/$VER/lib64/libcudnn_cnn_train_static.a
-  $HOME/$VER/lib64/libcudnn_ops_infer.so.8.2.4
-  $HOME/$VER/lib64/libcudnn_ops_train.so.8.2.4
+  $HOME/$VER/lib64/libcudnn_ops_infer.so.8.2.1
   $HOME/$VER/lib64/libcudnn_static.a
 
   # TensorRT
-  $HOME/$VER/lib64/libnvinfer.so.8.2.4
+  $HOME/$VER/lib64/libnvinfer.so.8.0.3
   $HOME/$VER/lib64/libnvinfer_static.a
 )
 
