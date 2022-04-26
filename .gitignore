@@ -3,5 +3,6 @@ archive
 bin
 include
 lib64
-meta/backup-11.4/
+meta/cuda-11.4-backup/
+meta/tensorrt-8.2.4.2-backup/
 v11.4/
