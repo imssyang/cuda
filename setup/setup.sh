@@ -66,6 +66,10 @@ _large_files=(
   $HOME/$VER/lib64/libcudnn_ops_infer.so.8.2.4
   $HOME/$VER/lib64/libcudnn_ops_train.so.8.2.4
   $HOME/$VER/lib64/libcudnn_static.a
+
+  # TensorRT
+  $HOME/$VER/lib64/libnvinfer.so.8.2.4
+  $HOME/$VER/lib64/libnvinfer_static.a
 )
 
 init() {

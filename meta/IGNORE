@@ -22,4 +22,6 @@ v11.4/targets/x86_64-linux/lib/libcudnn_cnn_train_static.a
 v11.4/targets/x86_64-linux/lib/libcudnn_ops_infer.so.8.2.4
 v11.4/targets/x86_64-linux/lib/libcudnn_ops_train.so.8.2.4
 v11.4/targets/x86_64-linux/lib/libcudnn_static.a
+v11.4/targets/x86_64-linux/lib/libnvinfer.so.8.2.4
+v11.4/targets/x86_64-linux/lib/libnvinfer_static.a
 
