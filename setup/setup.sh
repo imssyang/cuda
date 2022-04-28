@@ -37,8 +37,8 @@ _unarchive_item() {
   fdir=$(dirname $fpath)
   fname=$(basename $fpath)
   if [[ ! -f $fpath ]]; then
-    echo "($APP) unarchive $fpath"
-    7z x $HOME/archive/$fname-$VER.txz -o$fdir
+    echo "($APP) unarchive $HOME/archive/$fname-$VER.7z -> $fpath"
+    7z x $HOME/archive/$fname-$VER.7z -o$fdir
   fi
 }
 
