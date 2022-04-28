@@ -82,6 +82,7 @@ init() {
   chown -R root:root $HOME
   chmod 755 $HOME
 
+  . $HOME/setup/env.sh
   $PIP install --no-cache-dir -r $HOME/setup/requirements.txt
 }
 
