@@ -82,6 +82,10 @@ init() {
   chown -R root:root $HOME
   chmod 755 $HOME
 
+  export CUDA_ROOT=/opt/cuda
+  export PATH=$PATH:/opt/cuda/bin
+  export CPATH=$CPATH:/opt/cuda/include
+  export LIBRARY_PATH=$LIBRARY_PATH:/opt/cuda/lib64
   $PIP install --no-cache-dir -r $HOME/setup/requirements.txt
 }
 
