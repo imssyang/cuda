@@ -29,3 +29,5 @@ v11.3/targets/x86_64-linux/lib/libcudnn_static.a
 # tensorrt
 v11.3/targets/x86_64-linux/lib/libnvinfer.so.8.0.3
 v11.3/targets/x86_64-linux/lib/libnvinfer_static.a
+
+sample
